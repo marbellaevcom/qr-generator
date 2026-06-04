@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engel & Völkers Marbella - Cargando...</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #111111;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .loading-box {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 360px;
+            width: 90%;
+        }
+        .logo { width: 80%; height: auto; margin-bottom: 30px; }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #111111;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        p { color: #666666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+        .countdown { font-weight: bold; color: #111111; }
+    </style>
+</head>
+<body>
+
+    <div class="loading-box">
+        <img class="logo" src="./img/logo.png" alt="Engel & Völkers">
+        <div class="spinner"></div>
+        <p>Configurando tarjeta digital...</p>
+        <p class="減" style="font-size: 12px; text-transform: none;">Por favor, espere <span class="countdown" id="timer">25</span> segundos.</p>
+    </div>
+
+    <script>
+        // Cuenta atrás y recarga automática de la misma URL de destino
+        let timeLeft = 25;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.reload(); // Recarga la página actual que ahora ya habrá sido procesada por GitHub
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
