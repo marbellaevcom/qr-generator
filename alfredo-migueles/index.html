@@ -37,7 +37,7 @@
         }
         @font-face {
             font-family: 'Head';
-            src: url(../fonts/Header.ttf); /* Coincide exactamente con el Header.ttf de tu GitHub */
+            src: url(../fonts/Header.ttf);
         }
 
         .card {
@@ -81,6 +81,20 @@
 
         .title {
             font-size: 12px;
+            color: var(--ev-grey);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        /* Si el título es el último elemento de texto antes del botón, aplica el margen completo */
+        .title:last-of-type {
+            margin-bottom: 25px;
+        }
+
+        /* Estilo para la coletilla (2px menos de font-size) */
+        .collaboration {
+            font-size: 10px;
             color: var(--ev-grey);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -164,6 +178,9 @@
 
         <h1 class="name">Alfredo Migueles</h1>
         <p class="title">Independent Property Advisor</p>
+        
+        <!-- Etiqueta dinámica para la Coletilla -->
+        <p class="collaboration">In collaboration with Engel & Völkers</p>
 
         <a href="./contacto.vcf" download="Alfredo_Migueles_EV.vcf" class="btn-main">Save Contact</a>
 
